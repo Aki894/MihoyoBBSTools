@@ -6,6 +6,7 @@ import push
 import login
 import tools
 import config
+import captcha
 import mihoyobbs
 import competition
 import gamecheckin
@@ -66,6 +67,8 @@ def main():
             return_data += "\n\n" + "米游社竞赛活动:" + competition_result
     if "触发验证码" in return_data:
         ret_code = 3
+    points = captcha.get_points()
+    return_data += "\n\n" + "验证码点数:" + points
     return ret_code, return_data
 
 
