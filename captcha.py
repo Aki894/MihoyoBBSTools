@@ -13,18 +13,24 @@ def game_captcha(gt: str, challenge: str):
     response = geetest(gt, challenge, 'https://passport-api.mihoyo.com/account/ma-cn-passport/app/loginByPassword')
     # 失败返回None 成功返回validate
     if response is None:
-        return response
-    else:
-        return response['validate']
+        # return response
+        time.sleep(5)
+        response = geetest(gt, challenge, 'https://passport-api.mihoyo.com/account/ma-cn-passport/app/loginByPassword')
+        if response is None:
+            return response
+    return response['validate']
 
 
 def bbs_captcha(gt: str, challenge: str):
     response = geetest(gt, challenge, "https://webstatic.mihoyo.com/bbs/event/signin-ys/index.html?bbs_auth_required=true&act_id=e202009291139501&utm_source=bbs&utm_medium=mys&utm_campaign=icon")
     # 失败返回None 成功返回validate
     if response is None:
-        return response
-    else:
-        return response['validate']
+        # return response
+        time.sleep(5)
+        response = geetest(gt, challenge, "https://webstatic.mihoyo.com/bbs/event/signin-ys/index.html?bbs_auth_required=true&act_id=e202009291139501&utm_source=bbs&utm_medium=mys&utm_campaign=icon")
+        if response is None:
+            return response
+    return response['validate']
 
 # 提交识别
 def geetest(gt: str, challenge: str, referer: str):
@@ -44,24 +50,25 @@ def geetest(gt: str, challenge: str, referer: str):
         # 'referer': referer  # 可选
     }
     response = http.post('http://api.ttocr.com/api/recognize', data=data, timeout=60000)
-    data = response.json()
-    if data['status'] != 1:
-        log.warning(f"提交错误：[{data['status']}]{data['msg']}")  # 打码失败输出错误信息
+    r = response.json()
+    if r['status'] != 1:
+        log.warning(f"提交错误：[{r['status']}]{r['msg']}")  # 打码失败输出错误信息
         return None
     else:
         log.info("提交成功，正在查询结果...")
         time.sleep(5)
-        result_data = get_result(data['resultid'])  # 查询结果
+        result_data = get_result(r['resultid'])  # 查询结果
         attempts = 0  # 初始化尝试次数
         while result_data['status'] == 2 and attempts < 20:
             log.info("识别中，请稍等...")
             time.sleep(5)
-            result_data = get_result(data['resultid'])
+            result_data = get_result(r['resultid'])
             attempts += 1  # 增加尝试次数
         if result_data['status'] == 1:
             log.info("查询结果成功，识别成功")  # 成功输出识别结果
         else:
             log.warning(f"识别失败：[{result_data['status']}]{result_data['msg']}")  # 失败输出错误信息
+            return None
         return result_data['data']  # 失败返回None 成功返回data，包含validate
 
 # 查询结果
