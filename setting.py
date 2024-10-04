@@ -1,14 +1,14 @@
 # 米游社的Salt
 # java提取，会跟随版本更新
-mihoyobbs_salt = "rtvTthKxEyreVXQCnhluFgLXPOFKPHlA"
-mihoyobbs_salt_web = "EJncUPGnOHajenjLhBOsdpwEMZmiCmQX"
+mihoyobbs_salt = "oqrJbPCoFhWhFBNDvVRuldbrbiVxyWsP"
+mihoyobbs_salt_web = "zZDfHqEcwTqvvKDmqRcHyqqurxGgLfBV"
 # so提取 一般不会变
 mihoyobbs_salt_x4 = "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
 mihoyobbs_salt_x6 = "t0qEgfub6cvueAPgR5m9aQWWVciEer7v"
 # 部分接口要带
 mihoyobbs_verify_key = "bll8iq97cem8"
 # 米游社的版本
-mihoyobbs_version = "2.71.1"  # Salt和Version相互对应
+mihoyobbs_version = "2.75.2"  # Salt和Version相互对应
 # 米游社的客户端类型
 mihoyobbs_Client_type = "2"  # 1为ios 2为安卓
 mihoyobbs_Client_type_web = "5"  # 4为pc web 5为mobile web
@@ -63,7 +63,10 @@ headers = {
 # 通用设置
 bbs_api = "https://bbs-api.miyoushe.com"
 web_api = "https://api-takumi.mihoyo.com"
+passport_api = "https://passport-api.mihoyo.com"
+
 account_Info_url = web_api + "/binding/api/getUserGameRolesByCookie"
+get_token_by_stoken = f"{passport_api}/account/ma-cn-session/app/getTokenBySToken"
 
 # 米游社的API列表
 bbs_account_info = "https://webapi.account.mihoyo.com/Api/cookie_accountinfo_by_loginticket"
@@ -89,6 +92,7 @@ hk4e_api_base_url = 'https://hk4e-api.mihoyo.com'
 hk4e_token_get_info_url = f'{web_api}/common/badge/v1/login/info'
 # 获取hk4e token
 get_hk4e_token_url = f'{web_api}/common/badge/v1/login/account'
+genius_invokation_status = f'{hk4e_api_base_url}/event/geniusinvokationtcg/rd_info'
 # 获取任务列表
 genius_invokation_task_url = f'{hk4e_api_base_url}/event/geniusinvokationtcg/adventure_task_list'
 # 领取任务奖励
