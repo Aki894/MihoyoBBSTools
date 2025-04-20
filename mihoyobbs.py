@@ -272,7 +272,7 @@ class Mihoyobbs:
         return_data = "米游社: "
         if self.task_do["sign"] and self.task_do["read"] and self.task_do["like"] and \
                 self.task_do["share"]:
-            return_data += "\n" + f"今天已经全部完成了！\n" \
+            return_data += f"全部完成了！\n" \
                                   f"一共获得 {self.today_have_get_coins} 个米游币\n目前有 {self.have_coins} 个米游币"
             log.info(f"今天已经全部完成了！一共获得 {self.today_have_get_coins} 个米游币，目前有 {self.have_coins} 个米游币")
             return return_data
@@ -286,7 +286,7 @@ class Mihoyobbs:
             self.post_task()
             self.get_tasks_list()
             i += 1
-        return_data += "\n" + f"今天已经获得 {self.today_have_get_coins} 个米游币\n" \
+        return_data += f"获得 {self.today_have_get_coins} 个米游币\n" \
                               f"还能获得 {self.today_get_coins} 个米游币\n目前有 {self.have_coins} 个米游币"
         log.info(f"今天已经获得 {self.today_have_get_coins} 个米游币，"
                  f"还能获得 {self.today_get_coins} 个米游币，目前有 {self.have_coins} 个米游币")
