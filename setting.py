@@ -1,14 +1,14 @@
 # 米游社的Salt
 # java提取，会跟随版本更新
-mihoyobbs_salt = "GuODIETRPuJxpiUQoZairQxHtmzZKYFl"
-mihoyobbs_salt_web = "ACDpsiiEFSqqLiEpzXMuXNsLNqGkrIQc"
+mihoyobbs_salt = "ss6ZUzUlaWv6iDe0SHPSdCZYr0RSKPdi"
+mihoyobbs_salt_web = "gW20AtTxpc0V5GR3SmsytCLhVBgXtW6I"
 # so提取 一般不会变
 mihoyobbs_salt_x4 = "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
 mihoyobbs_salt_x6 = "t0qEgfub6cvueAPgR5m9aQWWVciEer7v"
 # 部分接口要带
 mihoyobbs_verify_key = "bll8iq97cem8"
 # 米游社的版本
-mihoyobbs_version = "2.78.1"  # Salt和Version相互对应
+mihoyobbs_version = "2.85.1"  # Salt和Version相互对应
 # 米游社的客户端类型
 mihoyobbs_Client_type = "2"  # 1为ios 2为安卓
 mihoyobbs_Client_type_web = "5"  # 4为pc web 5为mobile web
@@ -29,7 +29,7 @@ game_id2name = {
     "bh3_cn": "崩坏3",
     "nxx_cn": "未定事件簿",
     "hk4e_cn": "原神",
-    "hkrpg_cn": "崩坏： 星穹铁道",
+    "hkrpg_cn": "崩坏：星穹铁道",
     "nap_cn": "绝区零"
 }
 
