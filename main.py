@@ -8,6 +8,7 @@ import push
 import login
 import tools
 import config
+import captcha
 import mihoyobbs
 import cloudgames
 import gamecheckin
@@ -136,7 +137,8 @@ def main() -> Tuple[int, str]:
     result_msg = "\n".join(filter(None, return_data))
     if "触发验证码" in result_msg:
         status_code = StatusCode.CAPTCHA_TRIGGERED.value
-
+        points = captcha.get_points()
+        result_msg += "\n\n" + "验证码点数：" + points
     return status_code, result_msg
 
 
