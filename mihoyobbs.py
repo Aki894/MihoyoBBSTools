@@ -84,10 +84,17 @@ class Mihoyobbs:
         data = req.json()
         if data["retcode"] != 0:
             return None
-        validate = captcha.bbs_captcha(data["data"]["gt"], data["data"]["challenge"])
-        if validate is not None:
+        captcha_result = captcha.bbs_captcha(data["data"]["gt"], data["data"]["challenge"])
+        if captcha_result is not None:
+            challenge = data["data"]["challenge"]
+            if type(captcha_result) == dict:
+                validate = captcha_result["validate"]
+                challenge = captcha_result["challenge"]
+            else:
+                validate = captcha_result
+
             check_req = http.post(url=setting.bbs_captcha_verify, headers=self.headers,
-                                  json={"geetest_challenge": data["data"]["challenge"],
+                                  json={"geetest_challenge": challenge,
                                         "geetest_seccode": validate + "|jordan",
                                         "geetest_validate": validate})
             check = check_req.json()
@@ -134,9 +141,12 @@ class Mihoyobbs:
                 elif do.get("num_attr") is not None:
                     self.task_do[do["num_attr"]] = self.task_do[do["num_attr"]] - mission_state["happened_times"]
         if data['data']['can_get_points'] != 0:
-            new_day = data['data']['states'][0]['mission_id'] >= 62
-            log.info(f"{'新的一天，今天可以获得' if new_day else '似乎还有任务没完成，今天还能获得'}"
-                     f" {self.today_get_coins} 个米游币")
+            if len(data['data']['states']) == 0:
+                log.info(f"今天可以获得 {self.today_get_coins} 个米游币")
+            else:
+                new_day = data['data']['states'][0]['mission_id'] >= 62
+                log.info(f"{'新的一天，今天可以获得' if new_day else '似乎还有任务没完成，今天还能获得'}"
+                        f" {self.today_get_coins} 个米游币")
 
     # 获取要帖子列表
     def get_list(self) -> list:

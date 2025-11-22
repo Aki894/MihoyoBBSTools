@@ -9,7 +9,7 @@ token = '' # 设置环境变量“ttocr_token”
 points = -1
 
 
-def game_captcha(gt: str, challenge: str):
+def game_captcha(gt: str, challenge: str) -> dict:
     response = geetest(gt, challenge, 'https://passport-api.mihoyo.com/account/ma-cn-passport/app/loginByPassword')
     # 失败返回None 成功返回validate
     if response is None:
@@ -21,7 +21,7 @@ def game_captcha(gt: str, challenge: str):
     return response['validate']
 
 
-def bbs_captcha(gt: str, challenge: str):
+def bbs_captcha(gt: str, challenge: str) -> dict:
     response = geetest(gt, challenge, "https://webstatic.mihoyo.com/bbs/event/signin-ys/index.html?bbs_auth_required=true&act_id=e202009291139501&utm_source=bbs&utm_medium=mys&utm_campaign=icon")
     # 失败返回None 成功返回validate
     if response is None:

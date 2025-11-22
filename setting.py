@@ -1,14 +1,14 @@
 # 米游社的Salt
 # java提取，会跟随版本更新
-mihoyobbs_salt = "LKsbRciURVKljyjuhSeobiyFngbAyjAh"
-mihoyobbs_salt_web = "dDIQHbKOdaPaLuvQKVzUzqdeCaxjtaPV"
+mihoyobbs_salt = "idMMaGYmVgPzh3wxmWudUXKUPGidO7GM"
+mihoyobbs_salt_web = "G1ktdwFL4IyGkHuuWSmz0wUe9Db9scyK"
 # so提取 一般不会变
 mihoyobbs_salt_x4 = "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
 mihoyobbs_salt_x6 = "t0qEgfub6cvueAPgR5m9aQWWVciEer7v"
 # 部分接口要带
 mihoyobbs_verify_key = "bll8iq97cem8"
 # 米游社的版本
-mihoyobbs_version = "2.90.1"  # Salt和Version相互对应
+mihoyobbs_version = "2.93.1"  # Salt和Version相互对应
 # 米游社的客户端类型
 mihoyobbs_Client_type = "2"  # 1为ios 2为安卓
 mihoyobbs_Client_type_web = "5"  # 4为pc web 5为mobile web
@@ -23,6 +23,7 @@ mihoyobbs_List = {
     6: {"id": "6", "forumId": "52", "name": "崩坏：星穹铁道"},
     8: {"id": "8", "forumId": "57", "name": "绝区零"},
     9: {"id": "9", "forumId": "948", "name": "崩坏：因缘精灵"},
+    10: {"id": "10", "forumId": "950", "name": "星布谷地"},
 }
 
 game_id2name = {
